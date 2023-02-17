@@ -100,7 +100,7 @@ The code was updated in February of 2023.
 
 Esta aplicación fue presentada en nerdearla argentina el año 2019, por lo cual puedes ver un video explicativo en el siguiente link https://www.youtube.com/watch?v=e-JhnuYfoyw 
 
-Esta aplicación se compone de un frontend desarrollado con la tecnología React y un backend construido con Go (también conocido como Golang). La combinación de estas dos tecnologías para mostrar un demo del ranking del tennis ATP agregando el agente de apm de  observabilidad de elastic search.
+Esta aplicación se compone de un frontend desarrollado con la tecnología React y un backend construido con Go (también conocido como Golang). La combinación de estas dos tecnologías para mostrar un demo del ranking del tennis ATP agregando el agente apm de  observabilidad de elastic search.
 
 Como levantar ambos proyectos con contendores
 
