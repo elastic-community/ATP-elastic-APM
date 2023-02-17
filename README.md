@@ -1,6 +1,6 @@
 
 
-# English Version - Version Español
+# English Version - Version Ingles
 ## The best way to generate observability and monitoring for our cloud applications.
  [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
 This application was presented at Nerdearla Argentina in 2019, so you can watch an explanatory video at the following link: https://www.youtube.com/watch?v=e-JhnuYfoyw.
@@ -79,6 +79,15 @@ export ELASTIC_APM_SECRET_TOKEN="<Replace By Token>"
 go run cmd/main.go
 ```
 
+###Deploy
+
+To run the code on your Kubernetes server, you can use the support manifest and instantiate it with the following command.
+
+```console
+kubectl apply -f k8s.yaml
+```
+
+
 Happy codding and enjoy elastic search in your project
 
 ### Update
@@ -155,6 +164,14 @@ go run cmd/main.go
 ```
 
 Espero que esto te sirva para incorporar elastic search en tu propio proyecto
+
+###Deploy
+
+Para ejecutar el codigo en tu servidor de kubernetes puedes usar el manifiesto de apoyo y instanciarlo con el siguiente comando 
+```console
+kubectl apply -f k8s.yaml
+```
+
 
 ### Update
 
