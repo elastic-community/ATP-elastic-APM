@@ -1,19 +1,20 @@
-FROM golang:1.16-alpine as build 
+# FROM golang:1.18 as build 
 
-RUN apk add --no-cache tzdata
-RUN apk --update --no-cache add curl gcc musl-dev
-RUN apk add --no-cache ca-certificates git
-WORKDIR /go/src/atp/
-COPY go.mod .
-COPY go.sum .
-RUN go mod download 
-COPY . .
-RUN go build -o app cmd/main.go
+# # RUN apk add --no-cache tzdata
+# # RUN apk --update --no-cache add curl gcc musl-dev
+# # RUN apk add --no-cache ca-certificates git
+# WORKDIR /go/src/atp/
+# COPY go.mod .
+# COPY go.sum .
+# RUN go mod download 
+# COPY . .
+# RUN CGO_ENABLED=1 go build -o app cmd/main.go
 
 
-FROM frolvlad/alpine-glibc
+FROM ubuntu:20.04
 WORKDIR /app
-COPY --from=build /go/src/atp/app  /app/app
+#COPY --from=build /go/src/atp/app  /app/app
+COPY app /app/app
 COPY tennisATP.db /app/tennisATP.db
 EXPOSE 8000 
 ENTRYPOINT ["/app/app"]

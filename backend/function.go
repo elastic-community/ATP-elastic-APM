@@ -2,30 +2,25 @@ package atp
 
 import (
 	"atp/db"
-	"fmt"
 
 	"github.com/gin-gonic/gin"
 )
 
 type Player struct {
-	ID       int `json:"key"`
-	FullName string
-	Point    int
+	ID       int    `json:"key" gorm:"primaryKey;autoIncrement:true;column:id;`
+	FullName string `gorm:"full_name"`
+	Point    int    `gorm:"point"`
 }
 
 func Ranking(ctx *gin.Context) {
+
 	var players []Player
-	var sql, query string
-	query = ctx.Request.URL.Query().Get("q")
-	if query == "" {
-		sql = `select id, full_name,point from users`
-	} else {
-		sql = fmt.Sprintf(`select id, full_name,point from users where full_name like '%%%s%%'`, query)
-
+	DB := db.GetDB(ctx.Request.Context())
+	DB = DB.Select("id, full_name, point")
+	query := ctx.Request.URL.Query().Get("q")
+	if query != "" {
+		DB = DB.Where("full_name LIKE ?", "%"+query+"%")
 	}
-
-	db.GetDB(ctx).Raw(sql).Scan(&players)
-
-	fmt.Println("sql", sql)
+	DB.Find(&players)
 	ctx.JSON(200, players)
 }

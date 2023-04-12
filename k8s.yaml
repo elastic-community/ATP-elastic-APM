@@ -14,7 +14,8 @@ spec:
     spec:
       containers:
       - name: atp-frontend
-        image: ensena/atp-frontend
+        image: elasticcommunity/atp:frontend
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
 ---
@@ -34,14 +35,17 @@ spec:
     spec:
       containers:
       - name: atp-backend
-        image: ensena/atp-backend
+        image: elasticcommunity/atp:backend
+        imagePullPolicy: Always
         env:
         - name: ELASTIC_APM_SERVICE_NAME
           value: "backend-k8s"
         - name: ELASTIC_APM_SERVER_URL
-          value: "https://54f4fdeaa1bf4d52b857c96ca785a140.apm.eastus2.azure.elastic-cloud.com:443"
+          value: "https://6b057b5845174cb1a3c02874b7d58701.apm.us-central1.gcp.cloud.es.io:443"
         - name: ELASTIC_APM_SECRET_TOKEN
-          value: "edRKtuxGSqGFwXc3G5"
+          value: "v5uliIhYIjt67lPKi5"
+        - name: ELASTIC_APM_EXIT_SPAN_MIN_DURATION
+          value: "0ms"
         ports:
         - containerPort: 8000
 ---
@@ -68,7 +72,7 @@ metadata:
 spec:
   ports:
   - port: 80
-    targetPort: 8080
+    targetPort: 8000
     protocol: TCP
   selector:
     run: atp-backend
@@ -77,16 +81,16 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  annotations:
-    ingress.kubernetes.io/force-hsts: "true"
-    traefik.ingress.kubernetes.io/frontend-entry-points: https
-    traefik.ingress.kubernetes.io/router.entrypoints: web, websecure
-    traefik.ingress.kubernetes.io/router.tls: "true"
+  # annotations:
+    # ingress.kubernetes.io/force-hsts: "true"
+    # traefik.ingress.kubernetes.io/frontend-entry-points: https
+    # traefik.ingress.kubernetes.io/router.entrypoints: web, websecure
+    # traefik.ingress.kubernetes.io/router.tls: "true"
   name: atp
   namespace: default
 spec:
   rules:
-  - host: atp.xn--ensea-rta.cl
+  - host: atp.malba.cl
     http:
       paths:
       - backend:
@@ -105,6 +109,5 @@ spec:
         pathType: ImplementationSpecific
   tls:
   - {}
-  - secretName: ensena-tls
 status:
   loadBalancer: {}

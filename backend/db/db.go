@@ -1,13 +1,12 @@
 package db
 
 import (
-	"fmt"
+	"context"
 	"log"
 
-	"github.com/gin-gonic/gin"
-	_ "go.elastic.co/apm/module/apmgorm/dialects/sqlite"
+	sqlite "go.elastic.co/apm/module/apmgormv2/v2/driver/sqlite"
 
-	"gorm.io/driver/sqlite"
+	// "gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
 
@@ -21,19 +20,15 @@ type User struct {
 
 func init() {
 	var err error
-	// DB, err = apmgorm.Open("sqlite3", "tennisATP.db")
 	DB, err = gorm.Open(sqlite.Open("tennisATP.db"), &gorm.Config{})
 	if err != nil {
 		log.Fatalln("EXIT PROBLEM DB", err)
 	}
-
-	//db.AutoMigrate(&User{})
-	fmt.Println("ACAA")
-
 }
 
-func GetDB(ctx *gin.Context) *gorm.DB {
+func GetDB(ctx context.Context) *gorm.DB {
 	db := DB
-	//db = DB.WithContext(ctx)
+	db = db.WithContext(ctx)
+
 	return db
 }
