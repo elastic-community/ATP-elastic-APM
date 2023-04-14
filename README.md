@@ -9,7 +9,7 @@ The application consists of a frontend developed using React technology and a ba
 
 This project has been update in abril 2023.
 
-Here's how to run both projects using containers.
+Remeber this same project is available in [spanish](https://github.com/elastic-community/ATP-example-elastic-APM/blob/main/README-ES.md)
 
 ### Frontend 
 In order to run the frontend locally, we need to navigate to the frontend folder and execute the following commands:
