@@ -2,6 +2,10 @@
 
 # English Version - Version Ingles
 ## The best way to generate observability and monitoring for our cloud applications.
+
+<img width="1169" alt="image" src="https://user-images.githubusercontent.com/5631542/232169532-035cfb25-59dd-46f6-99e4-d0ec8bfb5f55.png">
+
+
  [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
 This application was presented at Nerdearla Argentina in 2019, so you can watch an explanatory video at the following link: https://www.youtube.com/watch?v=e-JhnuYfoyw.
 
