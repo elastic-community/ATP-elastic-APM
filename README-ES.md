@@ -94,6 +94,7 @@ Para ejecutar el codigo en tu servidor de kubernetes puedes usar el manifiesto d
 ```console
 kubectl apply -f k8s.yaml
 ```
+<img width="1342" alt="image" src="https://user-images.githubusercontent.com/5631542/232169697-226268b8-153e-4e81-8c37-22d500313377.png">
 
 
 ---
