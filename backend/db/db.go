@@ -6,7 +6,7 @@ import (
 
 	sqlite "go.elastic.co/apm/module/apmgormv2/v2/driver/sqlite"
 
-	// "gorm.io/driver/sqlite"
+	//"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
 
@@ -29,6 +29,5 @@ func init() {
 func GetDB(ctx context.Context) *gorm.DB {
 	db := DB
 	db = db.WithContext(ctx)
-
 	return db
 }
