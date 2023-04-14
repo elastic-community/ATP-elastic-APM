@@ -98,6 +98,9 @@ To run the code on your Kubernetes server, you can use the support manifest and 
 kubectl apply -f k8s.yaml
 ```
 
+<img width="1342" alt="image" src="https://user-images.githubusercontent.com/5631542/232169697-226268b8-153e-4e81-8c37-22d500313377.png">
+
+
 Happy codding and enjoy elastic search in your project
 
 
