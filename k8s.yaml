@@ -41,9 +41,9 @@ spec:
         - name: ELASTIC_APM_SERVICE_NAME
           value: "backend-k8s"
         - name: ELASTIC_APM_SERVER_URL
-          value: "https://6b057b5845174cb1a3c02874b7d58701.apm.us-central1.gcp.cloud.es.io:443"
+          value: "<url>"
         - name: ELASTIC_APM_SECRET_TOKEN
-          value: "v5uliIhYIjt67lPKi5"
+          value: "<token>"
         - name: ELASTIC_APM_EXIT_SPAN_MIN_DURATION
           value: "0ms"
         ports:

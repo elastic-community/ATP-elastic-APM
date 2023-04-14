@@ -29,10 +29,10 @@ export default function Ranking (){
         fetch(url)
         .then(response =>{
          if (!response.ok) {
-              apm.captureError(new Error(`fetch failed with status ${response.status} ${response.statusText}`))
+               apm.captureError(new Error(`fetch failed with status ${response.status} ${response.statusText}`))
          }
          httpSpan.end()
-         transaction.end()
+          transaction.end()
 
 
         return  response.json()
